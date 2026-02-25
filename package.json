@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Explore13/secure-env-guard.git"
   },
-  "license": "MIT",
+  "license": "ISC",
   "author": "Surya Ghosh",
   "main": "src/index.js",
   "scripts": {
