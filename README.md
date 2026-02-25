@@ -8,7 +8,7 @@ Designed for production-grade Node.js backends.
 
 ---
 
-## 🚀 Why secure-env-guard?
+## Why secure-env-guard?
 
 Misconfigured environment variables are one of the most common causes of production incidents.
 
@@ -24,7 +24,7 @@ Fail fast. Fail clearly. Ship confidently.
 
 ---
 
-## 📦 Installation
+## Installation
 
 ```bash
 npm install secure-env-guard
@@ -32,7 +32,7 @@ npm install secure-env-guard
 
 ---
 
-## 🔗 Links
+## Links
 
 - GitHub Repository:
   [https://github.com/Explore13/secure-env-guard](https://github.com/Explore13/secure-env-guard)
@@ -42,7 +42,7 @@ npm install secure-env-guard
 
 ---
 
-## ⚙️ Basic Usage
+## Basic Usage
 
 ```ts
 import { validateEnv } from "secure-env-guard";
@@ -67,7 +67,7 @@ console.log(env.API_KEY); // string
 
 ---
 
-## 🏗 Advanced Usage (Custom Config)
+## Advanced Usage (Custom Config)
 
 You can configure dotenv behavior manually.
 
@@ -117,7 +117,7 @@ app.listen(env.PORT, () => {
 
 ---
 
-## 🧠 Type Safety
+## Type Safety
 
 The returned object is fully inferred and strongly typed:
 
@@ -137,7 +137,7 @@ No manual parsing required.
 
 ---
 
-## 📁 Options
+## Options
 
 ```ts
 validateEnv(schema, options?)
@@ -222,7 +222,7 @@ SUCCESS Successfully loaded .env.example file
 
 ---
 
-## 🏭 Production Recommendation
+## Production Recommendation
 
 For production environments:
 
@@ -235,7 +235,7 @@ This package is designed to stop misconfigured deployments before they go live.
 
 ---
 
-## 🧩 Use Cases
+## Use Cases
 
 - Express / Fastify backends
 - Microservices
@@ -246,7 +246,7 @@ This package is designed to stop misconfigured deployments before they go live.
 
 ---
 
-## 🛡 Philosophy
+## Philosophy
 
 Configuration errors should never reach runtime.
 
@@ -254,7 +254,7 @@ Configuration errors should never reach runtime.
 
 ---
 
-## 📄 License
+## License
 
 MIT © Explore13
 

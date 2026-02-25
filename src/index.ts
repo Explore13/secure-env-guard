@@ -36,10 +36,10 @@ function parseValue(key: string, value: string, type: ValueType) {
   return parsedValue;
 }
 
-export default function validateEnv(
+export const validateEnv = (
   schema: EnvConfig,
   envLocation?: { path: string; load: boolean },
-) {
+) => {
   const path = (envLocation?.load && envLocation?.path) || ".env";
   const configResult = config({ path });
 
@@ -72,4 +72,4 @@ export default function validateEnv(
     schema[key] = value;
   }
   return schema;
-}
+};
