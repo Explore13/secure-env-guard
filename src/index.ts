@@ -1,10 +1,30 @@
-import { config, configDotenv } from "dotenv";
+import { config } from "dotenv";
 import chalk from "chalk";
+
+let cachedEnv: unknown = null;
 
 type ValueType = "number" | "string" | "boolean";
 interface EnvConfig {
   [key: string]: ValueType;
 }
+
+const loadEnv = (path: string) => {
+  if (cachedEnv) return cachedEnv;
+  const result = config({ path });
+
+  if (result?.error) {
+    throw new Error(
+      chalk.bgRed.white.bold(" ERROR ") + " " + chalk.red(result.error.message),
+    );
+  }
+
+  console.log(
+    chalk.bgGreen.white.bold(" SUCCESS ") +
+      " " +
+      chalk.green(`Successfully loaded ${chalk.blue(path)} file`),
+  );
+  return result.parsed;
+};
 
 function parseValue(key: string, value: string, type: ValueType) {
   let parsedValue: unknown;
@@ -41,21 +61,7 @@ export const validateEnv = (
   envLocation?: { path: string; load: boolean },
 ) => {
   const path = (envLocation?.load && envLocation?.path) || ".env";
-  const configResult = config({ path });
-
-  if (configResult?.error) {
-    throw new Error(
-      chalk.bgRed.white.bold(" ERROR ") +
-        " " +
-        chalk.red(configResult.error.message),
-    );
-  }
-
-  console.log(
-    chalk.bgGreen.white.bold(" SUCCESS ") +
-      " " +
-      chalk.green(`Successfully loaded ${chalk.blue(path)} file`),
-  );
+  cachedEnv = loadEnv(path);
 
   for (const key in schema) {
     let value: any = process.env[key];
